@@ -5,7 +5,7 @@
   <!-- Map server -->
   <arg name="scan_topic" default="scan"/>
   <!-- Please enter the path of your map file below. -->
-  <arg name="map_file" default="$(find minilab_simulation)/map/couloir.yaml"/>
+  <arg name="map_file" default="$(find segway_simulation)/map/couloir.yaml"/>
   <node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
 
   <!--If you use a starting position different than (0,0,0), you should then change the defaults below.>

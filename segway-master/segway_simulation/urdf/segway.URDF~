@@ -5,7 +5,7 @@
 
   <link name="base_footprint">
       <inertial>
-        <mass value="1.0" />
+        <mass value="0.0" />
         <origin xyz="0 0 0" />
         <inertia ixx="0.01" ixy="0.0" ixz="0.0"
                  iyy="0.01" iyz="0.0" izz="0.01" />
@@ -70,7 +70,7 @@
   </link>
 
   <joint name="base_footprint_joint" type="fixed">
-      <origin xyz="0 0 0.025" rpy="1.57 0 0" />
+      <origin xyz="0 0 0.025" rpy="-1.57 0 1.57" />
       <child link="base_link" />
       <parent link="base_footprint"/>
     </joint>
@@ -213,4 +213,15 @@
       k_position="0"
       k_velocity="0" />
   </joint>
+
+  <gazebo>
+
+   <plugin name='object_controller' filename='libgazebo_ros_planar_move.so'>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <odometryRate>20.0</odometryRate>
+      <robotBaseFrame>base_footprint</robotBaseFrame>
+    </plugin>
+ </gazebo>
 </robot>
